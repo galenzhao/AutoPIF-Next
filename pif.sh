@@ -39,7 +39,7 @@ lastLink=$(curl --silent --show-error "${url}" | grep -oP '<link>\K[^<]+' | head
 curl --silent --show-error --location --output "${apk_file}" "${lastLink}"
 
 apktool d "${apk_file}" -o "${extracted_apk}" -f
-
+cat "$fields_file"
 create_json
 
 cat "${service_file}"
